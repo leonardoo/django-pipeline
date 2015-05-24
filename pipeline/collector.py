@@ -26,8 +26,8 @@ class Collector(object):
         for d in dirs:
             self.clear(os.path.join(path, d))
 
-    def collect(self):
-        if self.is_collected:
+    def collect(self, collect=None):
+        if not collect and self.is_collected:
             return
         found_files = OrderedDict()
         for finder in finders.get_finders():
